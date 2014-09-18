@@ -1,0 +1,3 @@
+default.configuration=alfi_jpa_dev
+eclipse.preferences.version=1
+hibernate3.enabled=true

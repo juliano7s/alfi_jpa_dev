@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 18, 2014 2:28:24 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.creationguts.alfi.jpa.vo.Purchase" table="purchases">
+        <id name="id" type="java.lang.Long">
+            <column name="ID" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="client" class="com.creationguts.alfi.jpa.vo.Client" fetch="join">
+            <column name="CLIENT" />
+        </many-to-one>
+        <property name="date" type="java.util.Date">
+            <column name="DATE" />
+        </property>
+        <property name="paymentDate" type="java.util.Date">
+            <column name="PAYMENTDATE" />
+        </property>
+        <property name="paidValue" type="java.lang.Float">
+            <column name="PAIDVALUE" />
+        </property>
+        <property name="paidStatus" type="java.lang.Boolean">
+            <column name="PAIDSTATUS" />
+        </property>
+        <set name="purchasedProducts" table="PURCHASE_PRODUCT" inverse="false" lazy="true" access="field">
+            <key>
+                <column name="purchaseid" />
+            </key>
+            <one-to-many class="com.creationguts.alfi.jpa.vo.PurchaseProduct" />
+        </set>
+    </class>
+</hibernate-mapping>

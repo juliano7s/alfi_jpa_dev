@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 18, 2014 2:28:24 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.creationguts.alfi.jpa.vo.PurchaseProduct" table="PURCHASE_PRODUCT">
+        <id name="id" type="java.lang.Long">
+            <column name="ID" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="purchase" class="com.creationguts.alfi.jpa.vo.Purchase" fetch="join">
+            <column name="PURCHASE" />
+        </many-to-one>
+        <many-to-one name="product" class="com.creationguts.alfi.jpa.vo.Product" fetch="join">
+            <column name="PRODUCT" />
+        </many-to-one>
+        <property name="quantity" type="java.lang.Integer">
+            <column name="QUANTITY" />
+        </property>
+    </class>
+</hibernate-mapping>

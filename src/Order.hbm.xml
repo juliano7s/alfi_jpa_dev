@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 18, 2014 2:28:24 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.creationguts.alfi.jpa.vo.Order" table="orders">
+        <id name="id" type="java.lang.Long">
+            <column name="ID" />
+            <generator class="assigned" />
+        </id>
+        <property name="description" type="java.lang.String">
+            <column name="DESCRIPTION" />
+        </property>
+        <property name="requestDate" type="java.util.Date">
+            <column name="REQUEST_DATE" />
+        </property>
+        <property name="deliveryDate" type="java.util.Date">
+            <column name="DELIVERY_DATE" />
+        </property>
+        <property name="readyDate" type="java.util.Date">
+            <column name="READY_DATE" />
+        </property>
+        <property name="paymentDate" type="java.util.Date">
+            <column name="PAYMENT_DATE" />
+        </property>
+        <property name="status">
+            <column name="STATUS" />
+            <type name="org.hibernate.type.EnumType">
+                <param name="type">12</param>
+                <param name="enumClass">com.creationguts.alfi.jpa.vo.Order$Status</param>
+            </type>
+        </property>
+        <property name="value" type="java.lang.Float">
+            <column name="VALUE" />
+        </property>
+        <property name="cost" type="java.lang.Float">
+            <column name="COST" />
+        </property>
+        <property name="paidValue" type="java.lang.Float">
+            <column name="PAID_VALUE" />
+        </property>
+        <property name="paidStatus" type="java.lang.Boolean">
+            <column name="PAID_STATUS" />
+        </property>
+        <many-to-one name="client" class="com.creationguts.alfi.jpa.vo.Client" fetch="join">
+            <column name="CLIENTid" />
+        </many-to-one>
+        <many-to-one name="owner" class="com.creationguts.alfi.jpa.vo.User" fetch="join">
+            <column name="OWNERid" />
+        </many-to-one>
+        <property name="ownerPaidStatus" type="java.lang.Boolean">
+            <column name="OWNER_PAID_STATUS" />
+        </property>
+    </class>
+</hibernate-mapping>
